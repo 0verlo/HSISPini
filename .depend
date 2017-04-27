@@ -1,0 +1,7 @@
+ispIniPara.o: ispIniPara.c ispIniPara.h src/iniparser.h src/dictionary.h
+main.o: main.c ispIniPara.h src/iniparser.h src/dictionary.h
+dictionary.o: /mnt/share/CRLCode/!GitHub/HSISPini/src/dictionary.c \
+ /mnt/share/CRLCode/!GitHub/HSISPini/src/dictionary.h
+iniparser.o: /mnt/share/CRLCode/!GitHub/HSISPini/src/iniparser.c \
+ /mnt/share/CRLCode/!GitHub/HSISPini/src/iniparser.h \
+ /mnt/share/CRLCode/!GitHub/HSISPini/src/dictionary.h
