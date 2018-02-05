@@ -36,17 +36,35 @@ void iniFileFree()
 
 int iniSetAE_cfg()
 {
-    int procState = 0;
-	char inStrTmp[128];
+        int procState = 0;
+	char inputStrTmp[256];
 	char *outStrTmp = NULL;
 
-	snprintf(inStrTmp,sizeof(inStrTmp),"ExposureAttr_day:gColorAGainRangeMax");
-	outStrTmp = iniparser_getstring(g_dictionary, inStrTmp, "-1");
+        char *paramSelect = "DAY_PARAM";
+#if 0
+	snprintf(inputStrTmp,sizeof(inputStrTmp),"%s:gAGainRangeMax",paramSelect);
+	outStrTmp = iniparser_getstring(g_dictionary, inputStrTmp, NULL);
 	if(NULL == outStrTmp){
-		printf("get gColorAGainRangeMax error\n");
+		printf("get %s error\n",inputStrTmp);
 		return PROC_FAILURE;
 	}
 	printf("result is %s\n",outStrTmp);
 
-	return PROC_SUCCESS;
+	snprintf(inputStrTmp,sizeof(inputStrTmp),"%s:gHighCCM",paramSelect);
+	outStrTmp = iniparser_getstring(g_dictionary, inputStrTmp, NULL);
+	if(NULL == outStrTmp){
+		printf("get %s error\n",inputStrTmp);
+		return PROC_FAILURE;
+	}
+	printf("result is %s\n",outStrTmp);
+#endif
+	snprintf(inputStrTmp,sizeof(inputStrTmp),"%s:g_gamma_table",paramSelect);
+	outStrTmp = iniparser_getstring(g_dictionary, inputStrTmp, NULL);
+	if(NULL == outStrTmp){
+		printf("get %s error\n",inputStrTmp);
+		return PROC_FAILURE;
+	}
+	printf("result is %s\n",outStrTmp);
+
+            return PROC_SUCCESS;
 }

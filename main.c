@@ -12,6 +12,7 @@ void main()
 {
     int procState = 0;
     procState = iniFileLoad("info.ini");
-	procState = iniSetAE_cfg();
-	printf("hello\n");
+    procState = iniSetAE_cfg();
+    iniFileFree();
+    printf("hello\n");
 }
