@@ -38,17 +38,18 @@ int iniSetAE_cfg()
 {
         int procState = 0;
 	char inputStrTmp[256];
+	char outIntTmp = -1;
 	char *outStrTmp = NULL;
 
         char *paramSelect = "DAY_PARAM";
-#if 0
+#if 1 
 	snprintf(inputStrTmp,sizeof(inputStrTmp),"%s:gAGainRangeMax",paramSelect);
-	outStrTmp = iniparser_getstring(g_dictionary, inputStrTmp, NULL);
-	if(NULL == outStrTmp){
+	outIntTmp = iniparser_getint(g_dictionary, inputStrTmp, -1);
+	if(-1 == outIntTmp){
 		printf("get %s error\n",inputStrTmp);
 		return PROC_FAILURE;
 	}
-	printf("result is %s\n",outStrTmp);
+	printf("result is %d\n",outIntTmp);
 
 	snprintf(inputStrTmp,sizeof(inputStrTmp),"%s:gHighCCM",paramSelect);
 	outStrTmp = iniparser_getstring(g_dictionary, inputStrTmp, NULL);
@@ -57,6 +58,14 @@ int iniSetAE_cfg()
 		return PROC_FAILURE;
 	}
 	printf("result is %s\n",outStrTmp);
+
+	snprintf(inputStrTmp,sizeof(inputStrTmp),"%s:gSharpenUd",paramSelect);
+	outIntTmp = iniparser_getint(g_dictionary, inputStrTmp, -1);
+	if(-1 == outIntTmp){
+		printf("get %s error\n",inputStrTmp);
+		return PROC_FAILURE;
+	}
+	printf("result is %d\n",outIntTmp);
 #endif
 	snprintf(inputStrTmp,sizeof(inputStrTmp),"%s:g_gamma_table",paramSelect);
 	outStrTmp = iniparser_getstring(g_dictionary, inputStrTmp, NULL);

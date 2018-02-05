@@ -15,4 +15,7 @@ void main()
     procState = iniSetAE_cfg();
     iniFileFree();
     printf("hello\n");
+
+    unsigned int testNum = 0x10000;
+    printf("%d\n",testNum);
 }
