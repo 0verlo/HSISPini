@@ -45,9 +45,8 @@ int iniStringSplit2Int(char *pInputString)
 
         printf("mark1\n");
         pReader = pInputString;
-        while('\0' != *pReader)
+        while(NULL != pReader)
         {
-                printf("%x %c\n",*pReader,*pReader);
                 if((',' != *pReader)&&('|' != *pReader)&&('\0' != *pReader))
                 {
                         if(('X' == *pReader)||('x' == *pReader))
@@ -76,6 +75,9 @@ int iniStringSplit2Int(char *pInputString)
                         hexMark = 0;
                         valueConter++;
                 }
+
+                if('\0' == *pReader)
+                    break;
                 pReader++;
         }
         return valueConter;

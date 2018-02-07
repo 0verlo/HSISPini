@@ -18,4 +18,22 @@ void main()
 
     unsigned int testNum = 0x10000;
     printf("%d\n",testNum);
+
+    int i;
+    for(i = 0;i < 10;i++)
+    {
+        printf("%d",i);
+    }
+    i = 0;
+    while(i < 10)
+    {
+        i++;
+        printf("%d",i);
+    }
+    i = 0;
+    do
+    {
+        i++;
+        printf("%d",i);
+    }while(i<10);
 }
